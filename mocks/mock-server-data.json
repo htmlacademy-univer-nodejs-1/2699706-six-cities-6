@@ -1,0 +1,70 @@
+{
+  "mockData": {
+    "titles": [
+      "Cozy studio in city center",
+      "Sunny apartment near the river",
+      "Modern loft with skyline view",
+      "Quiet room close to metro",
+      "Family house with backyard",
+      "Compact hotel room downtown"
+    ],
+    "descriptions": [
+      "A comfortable place for short and long stays.",
+      "Fresh renovation, fully equipped kitchen and fast Wi-Fi.",
+      "Perfect for remote work and weekend trips.",
+      "Close to public transport, cafes and parks.",
+      "Great choice for couples and small families.",
+      "Bright interior and everything you need for daily life."
+    ],
+    "previewImages": [
+      "https://images.example.com/preview-1.jpg",
+      "https://images.example.com/preview-2.jpg",
+      "https://images.example.com/preview-3.jpg",
+      "https://images.example.com/preview-4.jpg",
+      "https://images.example.com/preview-5.jpg",
+      "https://images.example.com/preview-6.jpg"
+    ],
+    "images": [
+      "https://images.example.com/room-1.jpg",
+      "https://images.example.com/room-2.jpg",
+      "https://images.example.com/room-3.jpg",
+      "https://images.example.com/room-4.jpg",
+      "https://images.example.com/room-5.jpg",
+      "https://images.example.com/room-6.jpg",
+      "https://images.example.com/room-7.jpg",
+      "https://images.example.com/room-8.jpg"
+    ],
+    "names": [
+      "Alice Brown",
+      "Max Turner",
+      "Sophie Green",
+      "Liam Scott",
+      "Emma White",
+      "Noah King"
+    ],
+    "emails": [
+      "alice@example.com",
+      "max@example.com",
+      "sophie@example.com",
+      "liam@example.com",
+      "emma@example.com",
+      "noah@example.com"
+    ],
+    "avatarPaths": [
+      "https://images.example.com/avatar-1.jpg",
+      "https://images.example.com/avatar-2.jpg",
+      "https://images.example.com/avatar-3.jpg",
+      "https://images.example.com/avatar-4.jpg",
+      "https://images.example.com/avatar-5.jpg",
+      "https://images.example.com/avatar-6.jpg"
+    ],
+    "passwords": [
+      "password123",
+      "qwerty123",
+      "welcome123",
+      "cityhost2026",
+      "safehouse2026",
+      "stayeasy2026"
+    ]
+  }
+}
