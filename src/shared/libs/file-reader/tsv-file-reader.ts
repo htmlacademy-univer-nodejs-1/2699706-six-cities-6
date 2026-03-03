@@ -1,9 +1,10 @@
 import { EventEmitter } from 'node:events';
 import { createReadStream } from 'node:fs';
+import { createInterface } from 'node:readline';
 import { FileReader } from './file-reader.interface.js';
 
 export class TSVFileReader extends EventEmitter implements FileReader {
-  private CHUNK_SIZE = 16384;
+  private readonly CHUNK_SIZE = 16384;
 
   constructor(private readonly filename: string) {
     super();
@@ -15,21 +16,26 @@ export class TSVFileReader extends EventEmitter implements FileReader {
       encoding: 'utf-8',
     });
 
-    let remainingData = '';
-    let nextLinePosition = -1;
+    const lineReader = createInterface({
+      input: stream,
+      crlfDelay: Infinity,
+    });
+
     let importedRowCount = 0;
 
-    for await (const chunk of stream) {
-      remainingData += chunk.toString();
+    try {
+      for await (const line of lineReader) {
+        if (!line.trim()) {
+          continue;
+        }
 
-      while ((nextLinePosition = remainingData.indexOf('\n')) >= 0) {
-        const completeRow = remainingData.slice(0, nextLinePosition + 1);
-        remainingData = remainingData.slice(++nextLinePosition);
         importedRowCount++;
-        this.emit('line', completeRow);
+        this.emit('line', line);
       }
-    }
 
-    this.emit('end', importedRowCount);
+      this.emit('end', importedRowCount);
+    } catch (error) {
+      this.emit('error', error);
+    }
   }
 }

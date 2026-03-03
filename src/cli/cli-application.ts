@@ -26,12 +26,12 @@ export class CLIApplication {
     return this.commands['--help'];
   }
 
-  public processCommand(argv: string[]): void {
+  public async processCommand(argv: string[]): Promise<void> {
     const parsedCommand = this.parseCommand(argv);
     const [commandName, commandArguments] = parsedCommand;
     const command = this.getCommand(commandName);
 
-    command.execute(...commandArguments);
+    await command.execute(...commandArguments);
   }
 
   private parseCommand(cliArguments: string[]): [string, string[]] {

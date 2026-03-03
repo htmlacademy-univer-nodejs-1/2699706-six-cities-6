@@ -8,7 +8,7 @@ export class ImportCommand implements Command {
     return '--import';
   }
 
-  public execute(...parameters: string[]): void {
+  public async execute(...parameters: string[]): Promise<void> {
     const [filename] = parameters;
 
     if (!filename) {
@@ -19,15 +19,21 @@ export class ImportCommand implements Command {
     const fileReader = new TSVFileReader(filename.trim());
 
     fileReader.on('line', (line) => {
-      const offer = createOffer(line);
-      console.info(offer);
+      createOffer(line);
     });
 
     fileReader.on('end', (count) => {
       console.info(`${chalk.bold.green(count)} rows imported.`);
     });
 
+    fileReader.on('error', (error) => {
+      console.error(`Failed to import data from ${filename}`);
+      if (error instanceof Error) {
+        console.error(error.message);
+      }
+    });
+
     console.info(`Preparing to import data from ${chalk.yellow(filename)} ...`);
-    fileReader.read();
+    await fileReader.read();
   }
 }
