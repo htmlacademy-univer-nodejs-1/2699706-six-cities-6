@@ -20,7 +20,7 @@ const appConfig = convict<AppConfigSchema>({
   },
   DB_HOST: {
     doc: 'Database server IP address',
-    format: 'ipaddress',
+    format: String,
     env: 'DB_HOST',
     default: null,
   },

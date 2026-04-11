@@ -25,7 +25,9 @@
     "inversify": "^6.0.1",
     "pino": "^8.17.0",
     "axios": "^1.13.6",
-    "reflect-metadata": "^0.2.2"
+    "reflect-metadata": "^0.2.2",
+    "mongoose": "^8.13.2",
+    "@typegoose/typegoose": "^12.11.0"
   },
   "devDependencies": {
     "@types/node": "18.16.3",
